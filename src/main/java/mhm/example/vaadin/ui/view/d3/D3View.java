@@ -19,8 +19,12 @@ import org.apache.commons.logging.LogFactory;
 import java.util.ArrayList;
 import java.util.List;
 
+// The tree.js example is from: http://bl.ocks.org/d3noob/8375092
+// A more extensive example to integrate could be: http://bl.ocks.org/robschmuecker/7880033
+
 @Route(value = "", layout = MainLayout.class)
 @PageTitle("D3 View")
+// This is not working or needed, since we add the correct library below.
 // @JavaScript("https://d3js.org/d3.v5.min.js")
 // @JavaScript("http://d3js.org/d3.v3.min.js")
 public class D3View extends VerticalLayout
@@ -39,28 +43,49 @@ public class D3View extends VerticalLayout
         anchor.getElement().setProperty("innerHTML", "<anchor>");
         add(anchor);
 
-        // Label text = new Label("Once upon a time, there was something wonderful here on earth.");
-
-        //addThreeBalls(attachEvent);
-
         HorizontalLayout hl = new HorizontalLayout();
-        // hl.setAlignItems(Alignment.START);
         hl.setJustifyContentMode(JustifyContentMode.START);
 
-        hl.add(new D3Anchor());
+        hl.add(new D3Anchor()); // Creates the <div> anchor, which is referred in tree.js:43.
         add(hl);
 
         addTree(attachEvent);
+
+        // addThreeBalls(attachEvent);
     }
 
     private void addTree(AttachEvent attachEvent)
     {
         Page page = attachEvent.getUI().getPage();
-        // page.executeJs(JS);
 
-        // Example from http://bl.ocks.org/d3noob/8375092
         page.addJavaScript("http://d3js.org/d3.v3.min.js");
         page.addJavaScript("js/tree.js");
+    }
+
+    @Tag("div")
+    public static class D3Anchor extends Component
+    {
+        public D3Anchor()
+        {
+            // Nothing is needed here, since just the <div> element is needed as anchor.
+            // Relevant documentation: https://vaadin.com/docs/v13/flow/creating-components/tutorial-component-container.html
+        }
+    }
+
+// -----------
+
+    @Tag("svg")
+    public static class ThreeBalls extends Component
+    {
+        public ThreeBalls()
+        {
+            getElement().setProperty("innerHTML",
+                    "<svg width=\"720\" height=\"120\">"
+                            + "  <circle cx=\"40\" cy=\"60\" r=\"10\"></circle>"
+                            + "  <circle cx=\"80\" cy=\"60\" r=\"10\"></circle>"
+                            + "  <circle cx=\"120\" cy=\"60\" r=\"10\"></circle>"
+                            + "</svg>");
+        }
     }
 
     private void addThreeBalls(AttachEvent attachEvent)
@@ -78,41 +103,12 @@ public class D3View extends VerticalLayout
         Page page = attachEvent.getUI().getPage();
         colorSelect.addValueChangeListener(e ->
         {
-//            page.executeJavaScript("d3.selectAll('circle').style('fill',$0)",
-//                    colorSelect.getValue());
             page.executeJs("d3.selectAll('circle').style('fill',$0)",
                     colorSelect.getValue());
         });
     }
 
-    // http://bl.ocks.org/robschmuecker/7880033
-
-    // @Tag("svg")
-    @Tag("div")
-    public static class D3Anchor extends Component
-    {
-        public D3Anchor()
-        {
-//            getElement().setProperty("innerHTML",
-//                    "<svg width=\"720\" height=\"460\"/>");
-//                            // + "</svg>");
-        }
-    }
-
-    @Tag("svg")
-    public static class ThreeBalls extends Component
-    {
-        public ThreeBalls()
-        {
-            getElement().setProperty("innerHTML",
-                    "<svg width=\"720\" height=\"120\">"
-                            + "  <circle cx=\"40\" cy=\"60\" r=\"10\"></circle>"
-                            + "  <circle cx=\"80\" cy=\"60\" r=\"10\"></circle>"
-                            + "  <circle cx=\"120\" cy=\"60\" r=\"10\"></circle>"
-                            + "</svg>");
-        }
-    }
-
+// ----------------------
     private void showAlert()
     {
         Page page = UI.getCurrent().getPage();
