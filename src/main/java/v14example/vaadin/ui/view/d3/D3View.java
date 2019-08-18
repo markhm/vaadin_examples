@@ -56,10 +56,12 @@ public class D3View extends VerticalLayout
 
     private void addTree(AttachEvent attachEvent)
     {
+        setId("tree");
         Page page = attachEvent.getUI().getPage();
 
         page.addJavaScript("http://d3js.org/d3.v3.min.js");
         page.addJavaScript("js/tree.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/tree.js
+        page.executeJs("treeAlreadyRendered=false;renderTree();");
     }
 
     @Tag("div")
