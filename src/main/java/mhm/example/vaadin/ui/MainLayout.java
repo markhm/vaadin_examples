@@ -18,6 +18,7 @@ package mhm.example.vaadin.ui;
 
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
@@ -69,7 +70,8 @@ import java.util.Locale;
  * child views below that.
  */
 
-@HtmlImport("frontend://styles/shared-styles.html")
+@CssImport(value = "./styles/view-styles.css", id = "view-styles")
+@CssImport(value = "./styles/shared-styles.css", include = "view-styles")
 @Viewport("width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes")
 public class MainLayout extends Div implements RouterLayout, PageConfigurator, LocaleChangeObserver
 {
@@ -109,20 +111,16 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         d3View.setHighlightCondition(HighlightConditions.sameLocation());
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-        Image logo = new Image("/frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
+        Image logo = new Image("./frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
         logo.setHeight("50%");
         logo.addClickListener(e -> popupColofon());
 
-        Label whitespaceAfter = new Label("");
-
         Label whitespaceBefore = new Label("");
-        whitespaceBefore.getElement().setProperty("innerHTML", "&emsp;&emsp;&emsp;");
+        whitespaceBefore.getElement().setProperty("innerHTML", "&emsp;");
         whitespaceBefore.setVisible(true);
 
-        // whitespace.getElement().setProperty("innerHTML", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
-        whitespaceAfter.getElement().setProperty("innerHTML", "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;"); //&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-        // whitespace.setSizeFull(); // ;&emsp;" +
-        //                "&emsp;&emsp;&emsp;
+        Label whitespaceAfter = new Label("");
+        whitespaceAfter.getElement().setProperty("innerHTML", "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;");
         whitespaceAfter.setVisible(true);
 
         // RouterLink
@@ -195,11 +193,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
         if (locale.equals(TranslationProvider.LOCALE_EN))
         {
-            languageImage = new Image("/frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("./frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
         }
         else if (locale.equals(TranslationProvider.LOCALE_DA))
         {
-            languageImage = new Image("/frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("./frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
         }
         else
         {

@@ -20,7 +20,7 @@
 
         <!-- Component versions -->
         <!-- <vaadin.version>13.0.10</vaadin.version> -->
-        <vaadin.version>14.0.0.rc8</vaadin.version>
+        <vaadin.version>14.0.0</vaadin.version>
         <spring-version>5.1.9.RELEASE</spring-version>
         <jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
     </properties>
@@ -30,27 +30,6 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.7.RELEASE</version>
     </parent>
-
-    <pluginRepositories>
-        <!-- Repository needed for prerelease versions of Vaadin -->
-        <pluginRepository>
-            <id>vaadin-prereleases</id>
-            <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <repositories>
-        <!-- Repository needed for prerelease versions of Vaadin -->
-        <repository>
-            <id>vaadin-prereleases</id>
-            <url>https://maven.vaadin.com/vaadin-prereleases</url>
-        </repository>
-        <!-- Repository used by many Vaadin add-ons -->
-        <repository>
-            <id>Vaadin Directory</id>
-            <url>http://maven.vaadin.com/vaadin-addons</url>
-        </repository>
-    </repositories>
 
     <dependencyManagement>
         <dependencies>
@@ -115,7 +94,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>27.0.1-jre</version>
+            <version>28.0-jre</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava - ->
@@ -171,8 +150,8 @@
                         <executions>
                             <execution>
                                 <goals>
-                                    <goal>copy-production-files</goal>
-                                    <goal>package-for-production</goal>
+                                    <!-- v14.0.0 -->
+                                    <goal>build-frontend</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -238,8 +217,8 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>copy-production-files</goal>
-                            <!-- <goal>package-for-production</goal> -->
+                            <!-- v14.0.0 -->
+                            <goal>prepare-frontend</goal>
                         </goals>
                     </execution>
                 </executions>
