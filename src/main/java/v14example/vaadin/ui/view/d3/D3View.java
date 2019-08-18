@@ -59,7 +59,7 @@ public class D3View extends VerticalLayout
         Page page = attachEvent.getUI().getPage();
 
         page.addJavaScript("http://d3js.org/d3.v3.min.js");
-        page.addJavaScript("js/tree.js");
+        page.addJavaScript("js/tree.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/tree.js
     }
 
     @Tag("div")
