@@ -20,6 +20,7 @@ Other examples are also welcome.
 ### Backlog / issues for the D3 Tree example
 - The D3Anchor should be placed to the left in the middle, iso to the center, which allows the tree to nicely 'fan out' to the right
 - D3 example disappears a few seconds for an unknown reason
+- The D3 example is not removed when selecting a different tab
 - Open question on data integration via a servlet: https://vaadin.com/forum/thread/17784969
 
 ### Other examples to be added

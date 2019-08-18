@@ -37,6 +37,7 @@ import v14example.vaadin.ui.view.d3.D3View;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import v14example.vaadin.ui.view.tabs.TabsView;
 
 import javax.servlet.http.Cookie;
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
     private H2 title = null;
 
     private Text d3viewButtonText = null;
+    private Text tabsButtonText = null;
 
     @Autowired
     public MainLayout(SessionContext context)
@@ -109,6 +111,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         d3View.addClassName("main-layout__nav-item");
         d3View.setHighlightCondition(HighlightConditions.sameLocation());
 
+        RouterLink tabsView = new RouterLink(null, TabsView.class);
+        tabsButtonText = new Text(getTranslation("mainlayout.menubar.tabsview"));
+        tabsView.add(new Icon(VaadinIcon.LINK), tabsButtonText);
+        tabsView.addClassName("main-layout__nav-item");
+
         // Image is read from 'src/main/resources/META-INF/resources/'.
         Image logo = new Image("./frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
         logo.setHeight("50%");
@@ -123,7 +130,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         whitespaceAfter.setVisible(true);
 
         // RouterLink
-        Div navigation = new Div(d3View, whitespaceAfter);
+        Div navigation = new Div(d3View, tabsView, whitespaceAfter);
         navigation.addClassName("main-layout__nav");
 
         Label space = new Label("   ");
@@ -242,9 +249,9 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         Util.printCookies();
 
         List<String> messages = new ArrayList<>();
-        messages.add("v0.1 by Mark Hissink Muller (markhm@gmail.com)");
+        messages.add("v0.1 by Mark Hissink Muller");
         messages.add("");
-        messages.add("First version July 2019");
+        messages.add("First version August 2019");
 
         CommonViewElements.openDialogWindow("Colophon", messages, 300, 550);
     }
