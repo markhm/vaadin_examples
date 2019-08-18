@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui;
+package v14example.vaadin.ui;
 
 import java.time.LocalTime;
 import org.springframework.stereotype.Service;

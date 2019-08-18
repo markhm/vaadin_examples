@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui.view;
+package v14example.vaadin.ui.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasComponents;

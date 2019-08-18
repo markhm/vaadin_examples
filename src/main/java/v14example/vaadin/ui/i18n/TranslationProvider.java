@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui.i18n;
+package v14example.vaadin.ui.i18n;
 
 
 import com.google.common.cache.CacheBuilder;

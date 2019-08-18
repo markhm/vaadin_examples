@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui.session;
+package v14example.vaadin.ui.session;
 
 import com.vaadin.flow.spring.annotation.VaadinSessionScope;
 import org.apache.commons.logging.Log;

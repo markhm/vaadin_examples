@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui;
+package v14example.vaadin.ui;
 
 /*
  * Copyright 2000-2017 Vaadin Ltd.
@@ -19,7 +19,6 @@ package mhm.example.vaadin.ui;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.dependency.HtmlImport;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.html.Image;
@@ -31,10 +30,10 @@ import com.vaadin.flow.i18n.LocaleChangeEvent;
 import com.vaadin.flow.i18n.LocaleChangeObserver;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.server.*;
-import mhm.example.vaadin.ui.i18n.TranslationProvider;
-import mhm.example.vaadin.ui.session.SessionContext;
-import mhm.example.vaadin.ui.view.CommonViewElements;
-import mhm.example.vaadin.ui.view.d3.D3View;
+import v14example.vaadin.ui.i18n.TranslationProvider;
+import v14example.vaadin.ui.session.SessionContext;
+import v14example.vaadin.ui.view.CommonViewElements;
+import v14example.vaadin.ui.view.d3.D3View;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -111,7 +110,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         d3View.setHighlightCondition(HighlightConditions.sameLocation());
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-        Image logo = new Image("./frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
+        Image logo = new Image("img/Vaadin Examples logo.png", "Vaadin Examples logo");
         logo.setHeight("50%");
         logo.addClickListener(e -> popupColofon());
 
@@ -193,11 +192,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
         if (locale.equals(TranslationProvider.LOCALE_EN))
         {
-            languageImage = new Image("./frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("img/united-kingdom-flag-round-icon-32.png", "Click to change language");
         }
         else if (locale.equals(TranslationProvider.LOCALE_DA))
         {
-            languageImage = new Image("./frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("img/denmark-flag-round-icon-32.png", "Click to change language");
         }
         else
         {

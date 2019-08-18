@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui.view.d3;
+package v14example.vaadin.ui.view.d3;
 
 import com.vaadin.flow.component.*;
 import com.vaadin.flow.component.Component;
@@ -11,7 +11,7 @@ import com.vaadin.flow.component.page.PendingJavaScriptResult;
 import com.vaadin.flow.function.SerializableConsumer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import mhm.example.vaadin.ui.MainLayout;
+import v14example.vaadin.ui.MainLayout;
 import elemental.json.JsonValue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

@@ -1,4 +1,4 @@
-package mhm.example.vaadin.ui.i18n;
+package v14example.vaadin.ui.i18n;
 
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.i18n.I18NProvider;
