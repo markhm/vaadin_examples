@@ -2,7 +2,7 @@
 
 A repository with examples based on Vaadin Flow 14. 
 
-Initial aim is to provide a good example of D3js integration with loading data from the Vaadin application. 
+Initial aim is to provide a good example of D3js integration with loading back data from the Vaadin application via a separate servlet. 
 
 ### Characteristics
 - Vaadin 14 with Spring Boot
@@ -13,3 +13,7 @@ Initial aim is to provide a good example of D3js integration with loading data f
 ### To get started
 - mvn package
 - mvn jetty:run
+
+### Backlog
+- Align the D3 svg to the left, iso to the center.
+- https://vaadin.com/forum/thread/17784969
