@@ -12,7 +12,8 @@ Initial aim is to provide a good example of D3js integration with loading back d
 
 ### To get started
 - mvn package
-- mvn jetty:run
+- mvn spring-boot:run
+- open http://localhost:8081
 
 ### Backlog
 - Align the D3 svg to the left, iso to the center.
