@@ -110,16 +110,16 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         d3View.setHighlightCondition(HighlightConditions.sameLocation());
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-        Image logo = new Image("img/Vaadin Examples logo.png", "Vaadin Examples logo");
+        Image logo = new Image("./frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
         logo.setHeight("50%");
         logo.addClickListener(e -> popupColofon());
 
         Label whitespaceBefore = new Label("");
-        whitespaceBefore.getElement().setProperty("innerHTML", "&emsp;");
+        // whitespaceBefore.getElement().setProperty("innerHTML", "&emsp;");
         whitespaceBefore.setVisible(true);
 
         Label whitespaceAfter = new Label("");
-        whitespaceAfter.getElement().setProperty("innerHTML", "&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;");
+        whitespaceAfter.getElement().setProperty("innerHTML", "&emsp;");
         whitespaceAfter.setVisible(true);
 
         // RouterLink
@@ -192,11 +192,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
         if (locale.equals(TranslationProvider.LOCALE_EN))
         {
-            languageImage = new Image("img/united-kingdom-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("./frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
         }
         else if (locale.equals(TranslationProvider.LOCALE_DA))
         {
-            languageImage = new Image("img/denmark-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("./frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
         }
         else
         {
