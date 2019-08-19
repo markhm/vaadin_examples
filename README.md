@@ -20,7 +20,8 @@ Initial aim is to provide a good example of D3js integration where backing data 
 - ~~D3 example disappears a few seconds for an unknown reason~~
 - ~~The D3 example is not removed when selecting a different tab~~
 - Open question on data integration via a servlet: https://vaadin.com/forum/thread/17784969
-- Colours/styles should be modified so D3 and Vaadin do not visually clash 
+- JavaScript click results should be available in Vaadin/Java
+- Colours/styles should be modified so D3 and Vaadin do not visually clash
 
 ### Other examples to be added
 - [Tabs to show different pages](https://vaadin.com/components/vaadin-tabs/java-examples) 
