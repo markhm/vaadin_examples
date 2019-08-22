@@ -3,12 +3,6 @@ package v14example.vaadin.ui.view.tabs;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.html.Span;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.orderedlayout.FlexLayout;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
@@ -56,6 +50,8 @@ public class TabsView extends VerticalLayout
         tabsToPages.put(tab2, page2);
         tabsToPages.put(tab3, page3);
         Tabs tabs = new Tabs(tab1, tab2, tab3);
+        tabs.setFlexGrowForEnclosedTabs(1); // full width
+
         Div pages = new Div(page1, page2, page3);
         Set<Component> pagesShown = Stream.of(page1)
                 .collect(Collectors.toSet());
