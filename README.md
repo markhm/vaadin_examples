@@ -13,18 +13,14 @@ Initial aim is to provide a good example of D3js integration where backing data 
 ### To get started
 - To build: `mvn package`
 - To run: `mvn spring-boot:run`
-- Open a browser to http://localhost:8081
+- Open a browser to http://localhost:8081/app
 
 ### Backlog / issues for the D3 Tree example
-- ~~The D3Anchor should be placed to the left in the middle, iso to the center, which allows the tree to nicely 'fan out' to the right~~
-- ~~D3 example disappears a few seconds for an unknown reason~~
-- ~~The D3 example is not removed when selecting a different tab~~
-- Open question on data integration via a servlet: https://vaadin.com/forum/thread/17784969
 - JavaScript click results should be available in Vaadin/Java
-- Colours/styles should be modified so D3 and Vaadin do not visually clash
+- Nodes should be colorable from Java
 
 ### Other examples to be added
-- [Tabs to show different pages](https://vaadin.com/components/vaadin-tabs/java-examples) 
+- tbd 
 
 ### Acknowledgement
 Kind contributions were received from: 
