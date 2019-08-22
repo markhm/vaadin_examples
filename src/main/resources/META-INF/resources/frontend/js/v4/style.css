@@ -1,0 +1,97 @@
+/* Node properties */
+
+.node {
+    cursor: pointer;
+}
+.node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
+
+.node text {
+    font: 12px Helvetica;
+}
+
+/* Link properties */
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+.body {
+    font: 12px Helvetica;
+}
+
+.menuBar {
+    font: 12px "Lucida Grande";
+}
+/** Slider bar **/
+
+.legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+    font: 12px Helvetica;
+}
+
+.output {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.label {
+    margin-top: 1rem;
+    display: block;
+    font-size: .8rem;
+}
+
+/* Search box */
+/*Just to ensure the select2 box is "glued" to the top*/
+
+.search {
+  width: 100%;
+}
+
+.found {
+    fill: #ff4136;
+	stroke: #ff4136;
+}
+
+
+/* For having two colums */
+.wrapper {
+  margin-right: 200px;
+}
+
+.inner {
+
+}
+
+.content {
+    float: left;
+    position: relative;
+    width: 1000px;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.sidebar {
+    position: absolute;
+    width: 200px;
+    top: 0;
+    right: 0;
+
+    height: auto;
+    background-color: lightgrey;
+    border: 1px solid black;
+
+    font: 12px "Lucida Grande";
+}
+.cleared {
+  clear: both;
+}
+
+.unused{
+    align: top;
+}

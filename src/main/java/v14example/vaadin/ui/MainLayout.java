@@ -117,7 +117,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         tabsView.addClassName("main-layout__nav-item");
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-        Image logo = new Image("./frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
+        Image logo = new Image("/frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
         logo.setHeight("50%");
         logo.addClickListener(e -> popupColofon());
 
@@ -199,11 +199,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
         if (locale.equals(TranslationProvider.LOCALE_EN))
         {
-            languageImage = new Image("./frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("/frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
         }
         else if (locale.equals(TranslationProvider.LOCALE_DA))
         {
-            languageImage = new Image("./frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
+            languageImage = new Image("/frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
         }
         else
         {
