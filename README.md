@@ -16,8 +16,7 @@ Initial aim is to provide a good example of D3js integration where backing data 
 - Open a browser to http://localhost:8081/app
 
 ### Backlog / issues for the D3 Tree example
-- Drag/Move events are not available under Vaadin, see this [post](https://vaadin.com/forum/thread/17808926/integrating-d3-javascript-drag-zoom-blocked-by-vaadin).
-- The proper node/item for JavaScript click results should be available in Java
+- JavaScript click results should be available in Vaadin/Java
 - Nodes should be colorable from Java
 
 ### Other examples to be added
