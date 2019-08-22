@@ -14,7 +14,7 @@ function renderTree()
         .style("opacity", 0);
 
     // d3.json("https://raw.githubusercontent.com/d3/d3-hierarchy/master/test/data/flare.json", function(error, values){
-    d3.json("http://localhost:8081/frontend/js/flare.json", function (error, values) {
+    d3.json("http://localhost:8081/frontend/js/flare_partly.json", function (error, values) {
     // d3.json("http://localhost:8080/tree_data/", function (error, values) {
         if (error) throw error;
 
