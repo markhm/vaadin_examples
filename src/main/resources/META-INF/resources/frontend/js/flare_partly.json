@@ -169,66 +169,6 @@
             "size": 4116
         }]
     }, {
-        "name": "physics",
-        "children": [{
-            "name": "DragForce",
-            "size": 1082
-        }, {
-            "name": "GravityForce",
-            "size": 1336
-        }, {
-            "name": "IForce",
-            "size": 319
-        }, {
-            "name": "NBodyForce",
-            "size": 10498
-        }, {
-            "name": "Particle",
-            "size": 2822
-        }, {
-            "name": "Simulation",
-            "size": 9983
-        }, {
-            "name": "Spring",
-            "size": 2213
-        }, {
-            "name": "SpringForce",
-            "size": 1681
-        }]
-    }, {
-        "name": "scale",
-        "children": [{
-            "name": "IScaleMap",
-            "size": 2105
-        }, {
-            "name": "LinearScale",
-            "size": 1316
-        }, {
-            "name": "LogScale",
-            "size": 3151
-        }, {
-            "name": "OrdinalScale",
-            "size": 3770
-        }, {
-            "name": "QuantileScale",
-            "size": 2435
-        }, {
-            "name": "QuantitativeScale",
-            "size": 4839
-        }, {
-            "name": "RootScale",
-            "size": 1756
-        }, {
-            "name": "Scale",
-            "size": 4268
-        }, {
-            "name": "ScaleType",
-            "size": 1821
-        }, {
-            "name": "TimeScale",
-            "size": 5833
-        }]
-    }, {
         "name": "vis",
         "children": [{
             "name": "axis",
