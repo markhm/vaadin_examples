@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v4 - Collapsible tree in reusable format using D3 v4</title>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="search.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.4/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico"/>
+    <script src="script.js"></script>
+
+</head>
+<body>
+<div id="menuBar">
+    <span class="menuBar">&nbsp;Data:&ensp;</span>
+    <select style="width:150px;" onchange="loadOtherTree(value)">
+        <option value="flare.json">flare.json</option>
+    </select>
+
+    <input name="expandButton" type="button" value="Expand" onclick="myTree.expandTree()" />
+    <input name="collapseButton" type="button" value="Collapse" onclick="myTree.collapseTree()" />
+    <input name="resetSearchButton" type="button" value="Reset" onclick="reloadInitialTree()" />
+    <input name="centerButton" type="button" value="Center" onclick="centerTree()" />
+&ensp;
+    <span class="menuBar">Node distance:&ensp;</span>
+        <label for="width.slider" class="menuBar">Width</label>
+        <input id="width.slider" type="range" name="tree_width" min="100" value="180" max="500" step="1" />
+        <label for="height.slider" class="menuBar">Height</label>
+        <input id="height.slider" type="range" name="tree_height" min="0" value="0" max="250" step="1" />
+
+</div>
+<br/>
+
+<div id="wrapper" class="wrapper">
+    <div id="inner">
+        <div id="content" class="content">
+            <div id ="chart" />
+        </div>
+        <div id="sidebar" class="sidebar">
+            <p>&ensp;<b>Node info</b></p>
+            <p id="infoField" class="node">&ensp;name: (click node)</p>
+        </div>
+        </div>
+    <div id="cleared" class="cleared"></div>
+    <div id="search"></div>
+</div>
+
+<script>
+    var select2_data;
+    var height = 800 - 4; // 2px border
+    var width = 960 - 4; // 2px border
+    var myTree = tree().height(height).width(width);
+
+    var div = d3.select("body")
+        .append("div") // declare the tooltip div
+        .attr("class", "tooltip")
+        .style("opacity", 0);
+
+    d3.json("https://raw.githubusercontent.com/d3/d3-hierarchy/master/test/data/flare.json", function(error, values)
+    {
+        if (error) throw error;
+
+        root = values;
+
+        // root.x0 = height / 2;
+        // root.y0 = 0;
+
+        myTree.data(root);
+
+        select2_data = extract_select2_data(values,[],0)[1];//I know, not the prettiest...
+
+        //init search box
+        $("#search").select2({
+            data: select2_data,
+            containerCssClass: "search",
+            width: '1004px'
+        });
+
+        d3.select('#chart').call(myTree);
+
+    });
+
+    //attach search box listener
+	$("#search").on("select2-selecting", function(e)
+    {
+        // console.log("Before the path is created, checking contents of root");
+        // console.log(root);
+        // root = getCurrentRoot(); <- This does not work. It fully blocks the processing of the search result.
+		var paths = searchTree(root, e.object.text, []);
+
+        // console.log("Before after paths is created, checking contents of paths");
+		// console.log(paths);
+
+		if(typeof(paths) !== "undefined")
+		{
+			myTree.openPaths(paths);
+		}
+		else
+        {
+			alert(e.object.text+" not found!");
+		}
+	})
+
+    var width_slider = document.getElementById("width.slider");
+
+    width_slider.oninput = function()
+    {
+	    myTree.updateWidth(this.value);
+    }
+
+    var height_slider = document.getElementById("height.slider");
+
+    height_slider.oninput = function()
+    {
+        myTree.updateHeight(this.value);
+    }
+
+    // appendAxes();
+
+</script>
+</body>
+</html>
