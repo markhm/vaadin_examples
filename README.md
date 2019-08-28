@@ -1,6 +1,6 @@
 # Vaadin Examples
 
-A repository with examples based on Vaadin Flow 14 and the simple Beverage Buddy app. 
+A repository with examples based on Vaadin Flow 14 and the simple Beverage Buddy app.
 
 Initial aim is to provide a good example of D3js integration where backing data from the Vaadin application is loaded via a separate servlet. Other examples are welcome.
 
@@ -19,6 +19,7 @@ Initial aim is to provide a good example of D3js integration where backing data 
 - Drag/Move events are not available under Vaadin, see this [post](https://vaadin.com/forum/thread/17808926/integrating-d3-javascript-drag-zoom-blocked-by-vaadin).
 - The proper node/item for JavaScript click results should be available in Java
 - Nodes should be colorable from Java
+- _other_
 
 ### Other examples to be added
 - tbd 
