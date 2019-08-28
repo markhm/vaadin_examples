@@ -1,6 +1,6 @@
 # Vaadin Examples
 
-A repository with examples based on Vaadin Flow 14 and the simple Beverage Buddy app.
+A repository with examples based on Vaadin Flow 14 and the simple Beverage Buddy app. Small change
 
 Initial aim is to provide a good example of D3js integration where backing data from the Vaadin application is loaded via a separate servlet. Other examples are welcome.
 

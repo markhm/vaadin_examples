@@ -105,7 +105,7 @@ public class D3View extends VerticalLayout
     private HorizontalLayout getTreeMenu()
     {
         log.trace("Entering getTreeMenu()");
-        
+
         HorizontalLayout treeMenu = new HorizontalLayout();
         treeMenu.setWidthFull();
         treeMenu.setAlignItems(Alignment.END);
