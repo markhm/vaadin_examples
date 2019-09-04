@@ -47,14 +47,14 @@ public class D3View extends VerticalLayout
 
         page = attachEvent.getUI().getPage();
         // retrieves from /src/main/resources/META-INF/resources/frontend/js/
-        page.addStyleSheet("js/v4/style.css");
+        page.addStyleSheet("frontend://js/v4/style.css");
 
-        page.addJavaScript("js/v4/d3.v4.js");
+        page.addJavaScript("frontend://js/v4/d3.v4.js");
         // page.addJavaScript("js/v4/d3.v4.min.js");
 
-        page.addJavaScript("js/v4/script.js");
-        page.addJavaScript("js/v4/search.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/
-        page.addJavaScript("js/v4/tree.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/
+        page.addJavaScript("frontend://js/v4/script.js");
+        page.addJavaScript("frontend://js/v4/search.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/
+        page.addJavaScript("frontend://js/v4/tree.js"); // retrieves from /src/main/resources/META-INF/resources/frontend/js/
 
         addJsEventListener();
 
