@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>dk.mhm</groupId>
-    <artifactId>vaadin-examples-ui</artifactId>
+    <artifactId>vaadin_examples</artifactId>
     <name>vaadin-examples-ui</name>
     <version>0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 	<description>Vaadin examples, among other for integrating D3</description>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>12</maven.compiler.source>
+        <maven.compiler.target>12</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -20,7 +20,7 @@
 
         <!-- Component versions -->
         <!-- <vaadin.version>13.0.10</vaadin.version> -->
-        <vaadin.version>14.0.0</vaadin.version>
+        <vaadin.version>14.0.2</vaadin.version>
         <spring-version>5.1.9.RELEASE</spring-version>
         <jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
     </properties>
@@ -135,6 +135,7 @@
                             <execution>
                                 <goals>
                                     <!-- v14.0.0 -->
+                                    <goal>prepare-frontend</goal>
                                     <goal>build-frontend</goal>
                                 </goals>
                             </execution>
@@ -203,6 +204,7 @@
                         <goals>
                             <!-- v14.0.0 -->
                             <goal>prepare-frontend</goal>
+                            <goal>build-frontend</goal>
                         </goals>
                     </execution>
                 </executions>
