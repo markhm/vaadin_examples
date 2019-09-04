@@ -117,7 +117,10 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         tabsView.addClassName("main-layout__nav-item");
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-        Image logo = new Image("/frontend/img/Vaadin Examples logo.png", "Vaadin Examples logo");
+
+        String resolvedImage = VaadinServletService.getCurrent().resolveResource("frontend://img/Vaadin Examples logo.png", VaadinSession.getCurrent().getBrowser());
+        Image logo = new Image(resolvedImage, "Vaadin Examples logo");
+
         logo.setHeight("50%");
         logo.addClickListener(e -> popupColofon());
 
@@ -199,11 +202,14 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
         if (locale.equals(TranslationProvider.LOCALE_EN))
         {
-            languageImage = new Image("/frontend/img/united-kingdom-flag-round-icon-32.png", "Click to change language");
+            String resolvedImage = VaadinServletService.getCurrent().resolveResource("frontend://img/united-kingdom-flag-round-icon-32.png", VaadinSession.getCurrent().getBrowser());
+            languageImage = new Image(resolvedImage, "Click to change language");
+
         }
         else if (locale.equals(TranslationProvider.LOCALE_DA))
         {
-            languageImage = new Image("/frontend/img/denmark-flag-round-icon-32.png", "Click to change language");
+            String resolvedImage = VaadinServletService.getCurrent().resolveResource("frontend://img/denmark-flag-round-icon-32.png", VaadinSession.getCurrent().getBrowser());
+            languageImage = new Image(resolvedImage, "Klik for at ændre sprog");
         }
         else
         {
