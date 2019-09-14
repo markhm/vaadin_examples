@@ -5,13 +5,15 @@ pipeline
       docker
       {
           image 'maven:3-jdk-12'
-          args '-v /root/.m2:/Users/mark/.m2'
+          args '-v /Users/mark/.m2:/root/.m2'
+
+          // host directory : guest directory
       }
   }
 
   stages
   {
-  stage('Test environment')
+    stage('Test environment')
       {
         steps
         {
