@@ -2,8 +2,7 @@ pipeline
 {
   agent
   {
-      docker
-      {
+      docker {
           image 'maven:3-jdk-12'
           args '-v /Users/mark/.m2:/root/.m2'
 
@@ -11,12 +10,9 @@ pipeline
       }
   }
 
-  stages
-  {
-    stage('Test environment')
-      {
-        steps
-        {
+  stages {
+    stage('Test environment') {
+        steps {
           sh 'mvn version'
         }
       }
