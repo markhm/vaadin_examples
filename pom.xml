@@ -20,7 +20,7 @@
 
         <!-- Component versions -->
         <!-- <vaadin.version>13.0.10</vaadin.version> -->
-        <vaadin.version>14.0.3</vaadin.version>
+        <vaadin.version>14.0.4</vaadin.version>
         <spring-version>5.1.9.RELEASE</spring-version>
         <jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
     </properties>
