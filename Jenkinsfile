@@ -11,6 +11,14 @@ pipeline
 
   stages
   {
+  stage('Test environment')
+      {
+        steps
+        {
+          sh 'mvn version'
+        }
+      }
+
     stage('Checkout')
     {
       steps
