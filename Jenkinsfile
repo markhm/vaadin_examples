@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Test environment') {
       steps {
-        sh 'mvn version'
+        sh 'mvn -v'
       }
     }
     stage('Checkout') {
