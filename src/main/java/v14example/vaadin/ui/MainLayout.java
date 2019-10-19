@@ -16,6 +16,7 @@ package v14example.vaadin.ui;
  * the License.
  */
 
+import v14example.vaadin.ui.view.apexcharts.FormLayoutView;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.dependency.CssImport;
@@ -44,27 +45,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
-// https://demo.vaadin.com/lumo-editor/
-
-// deployment instructions:
-// https://medium.com/swlh/deploying-spring-boot-applications-15e14db25ff0
-
-// https://vaadin.com/blog/developing-without-server-restarts
-// http://hotswapagent.org
-
-// https://stackoverflow.com/questions/2189452/when-to-use-margin-vs-padding-in-css
-
-// Icons
-// https://vaadin.com/components/vaadin-icons/java-examples
-
-
-// Directory suggestions
-// - https://vaadin.com/directory/component/crud-ui-add-on
-
-// Internationatalization
-// https://vaadin.com/forum/thread/5305508/example-to-manage-internationalization
-
 /**
  * The main layout contains the header with the navigation buttons, and the
  * child views below that.
@@ -90,6 +70,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
     private Text d3viewButtonText = null;
     private Text tabsButtonText = null;
+    private Text formLayoutButtonText = null;
 
     @Autowired
     public MainLayout(SessionContext context)
@@ -98,9 +79,6 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         {
             context.setLocale(getLocale());
         }
-
-        // getLocaleFromCookie();
-        // Util.printLocaleDebugInfo(this, getLocale());
 
         title = new H2(getTranslation("mainlayout.title", getLocale()));
         title.addClassName("main-layout__title");
@@ -115,6 +93,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         tabsButtonText = new Text(getTranslation("mainlayout.menubar.tabsview"));
         tabsView.add(new Icon(VaadinIcon.LINK), tabsButtonText);
         tabsView.addClassName("main-layout__nav-item");
+
+        RouterLink formLayoutView = new RouterLink(null, FormLayoutView.class);
+        formLayoutButtonText = new Text(getTranslation("mainlayout.menubar.formlayout"));
+        formLayoutView.add(new Icon(VaadinIcon.LINK), formLayoutButtonText);
+        formLayoutView.addClassName("main-layout__nav-item");
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
 
@@ -133,7 +116,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         whitespaceAfter.setVisible(true);
 
         // RouterLink
-        Div navigation = new Div(d3View, tabsView, whitespaceAfter);
+        Div navigation = new Div(d3View, tabsView, formLayoutView, whitespaceAfter);
         navigation.addClassName("main-layout__nav");
 
         Label space = new Label("   ");
