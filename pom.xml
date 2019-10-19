@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.0.RELEASE</version>
+    </parent>
+
     <groupId>dk.mhm</groupId>
     <artifactId>vaadin_examples</artifactId>
     <name>vaadin-examples-ui</name>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
-	<description>Vaadin examples, among other for integrating D3</description>
+
+	<description>Vaadin examples project, among other for integrating ApexCharts and D3</description>
 
     <properties>
-        <maven.compiler.source>12</maven.compiler.source>
-        <maven.compiler.target>12</maven.compiler.target>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -19,17 +27,9 @@
         <drivers.downloader.phase>pre-integration-test</drivers.downloader.phase>
 
         <!-- Component versions -->
-        <!-- <vaadin.version>13.0.10</vaadin.version> -->
         <vaadin.version>14.0.7</vaadin.version>
         <spring-version>5.2.0.RELEASE</spring-version>
-        <jetty.plugin.version>9.3.9.v20160517</jetty.plugin.version>
     </properties>
-
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
-    </parent>
 
     <dependencyManagement>
         <dependencies>
@@ -84,7 +84,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>28.0-jre</version>
+            <version>28.1-jre</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.json/json -->
@@ -109,8 +109,7 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <activation>                 <!-- activate if -Pdev -->
-                <!-- this profile is active by default -->
+            <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
@@ -222,17 +221,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- The Jetty plugin allows us to easily test the development build by running jetty:run on the command line. -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.plugin.version}</version>
-                <configuration>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 
