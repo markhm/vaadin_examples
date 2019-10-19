@@ -34,3 +34,5 @@ hs_err_pid*
 node_modules
 webpack.config.js
 webpack.generated.js
+package.json
+package-lock.json
