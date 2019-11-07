@@ -16,6 +16,8 @@ package v14example.vaadin.ui;
  * the License.
  */
 
+import com.vaadin.flow.component.Component;
+import com.vaadin.flow.component.page.Push;
 import v14example.vaadin.ui.view.apexcharts.FormLayoutView;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
@@ -50,6 +52,7 @@ import java.util.Locale;
  * child views below that.
  */
 
+@Push
 @CssImport(value = "./styles/view-styles.css", id = "view-styles")
 @CssImport(value = "./styles/shared-styles.css", include = "view-styles")
 @Viewport("width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes")
@@ -68,7 +71,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
 
     private H2 title = null;
 
-    private Text d3viewButtonText = null;
+    // private Text d3viewButtonText = null;
     private Text tabsButtonText = null;
     private Text formLayoutButtonText = null;
 
@@ -83,24 +86,11 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         title = new H2(getTranslation("mainlayout.title", getLocale()));
         title.addClassName("main-layout__title");
 
-        RouterLink d3View = new RouterLink(null, D3View.class);
-        d3viewButtonText = new Text(getTranslation("mainlayout.menubar.d3view"));
-        d3View.add(new Icon(VaadinIcon.LINK), d3viewButtonText);
-        d3View.addClassName("main-layout__nav-item");
-        d3View.setHighlightCondition(HighlightConditions.sameLocation());
-
-        RouterLink tabsView = new RouterLink(null, TabsView.class);
-        tabsButtonText = new Text(getTranslation("mainlayout.menubar.tabsview"));
-        tabsView.add(new Icon(VaadinIcon.LINK), tabsButtonText);
-        tabsView.addClassName("main-layout__nav-item");
-
-        RouterLink formLayoutView = new RouterLink(null, FormLayoutView.class);
-        formLayoutButtonText = new Text(getTranslation("mainlayout.menubar.formlayout"));
-        formLayoutView.add(new Icon(VaadinIcon.LINK), formLayoutButtonText);
-        formLayoutView.addClassName("main-layout__nav-item");
+        RouterLink d3View = createRouterLink("mainlayout.menubar.d3view", D3View.class, VaadinIcon.LINK);
+        RouterLink tabsView = createRouterLink("mainlayout.menubar.tabsview", TabsView.class, VaadinIcon.LINK);
+        RouterLink formLayoutView = createRouterLink("mainlayout.menubar.formlayout", FormLayoutView.class, VaadinIcon.LINK);
 
         // Image is read from 'src/main/resources/META-INF/resources/'.
-
         String resolvedImage = VaadinServletService.getCurrent().resolveResource("frontend://img/Vaadin Examples logo.png", VaadinSession.getCurrent().getBrowser());
         Image logo = new Image(resolvedImage, "Vaadin Examples logo");
 
@@ -129,6 +119,24 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         addClassName("main-layout");
     }
 
+    private RouterLink createRouterLink(String translationItem, Class<? extends Component> component, VaadinIcon vaadinIcon)
+    {
+        return createRouterLink(translationItem, component, vaadinIcon, "base");
+    }
+
+    private RouterLink createRouterLink(String translationItem, Class<? extends Component> component, VaadinIcon vaadinIcon, String iconColor)
+    {
+        RouterLink routerLink = new RouterLink(null, component);
+        Text text = new Text(getTranslation(translationItem));
+        Icon icon = new Icon(vaadinIcon);
+        icon.setColor(iconColor);
+        routerLink.add(icon, text);
+        routerLink.addClassName("main-layout__nav-item");
+
+        // menuTextAndTranslation.put(text, translationItem);
+
+        return routerLink;
+    }
     @Override
     public void localeChange(LocaleChangeEvent event)
     {
@@ -136,7 +144,7 @@ public class MainLayout extends Div implements RouterLayout, PageConfigurator, L
         header.add(getLanguageImage());
 
         title.setText(getTranslation("mainlayout.title", getLocale()));
-        d3viewButtonText.setText(getTranslation("mainlayout.menubar.d3view", getLocale()));
+        // d3viewButtonText.setText(getTranslation("mainlayout.menubar.d3view", getLocale()));
     }
 
     private void getLocaleFromCookie()
