@@ -13,14 +13,14 @@ import java.util.Arrays;
 public class DemoView extends Div {
 
     public DemoView() {
-        ExampleChartGenerator generator = new ExampleChartGenerator();
-        Arrays.stream(generator.getCharts()).forEach(this::add);
-        setSizeFull();
-        getStyle()
-                .set("display", "flex")
-                .set("flex-direction", "column")
-                .set("overflow", "auto");
-        setSizeUndefined();
+        // ExampleChartGenerator generator = new ExampleChartGenerator();
+//        Arrays.stream(generator.getCharts()).forEach(this::add);
+//        setSizeFull();
+//        getStyle()
+//                .set("display", "flex")
+//                .set("flex-direction", "column")
+//                .set("overflow", "auto");
+//        setSizeUndefined();
     }
 
 }
