@@ -18,6 +18,7 @@ package v14example.vaadin.ui;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.page.Push;
+import com.vaadin.flow.shared.ui.Transport;
 import v14example.vaadin.ui.view.apexcharts.FormLayoutView;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.UI;
@@ -52,7 +53,9 @@ import java.util.Locale;
  * child views below that.
  */
 
-@Push
+@Push (transport = Transport.LONG_POLLING)
+// @Push
+// @Push (transport = Transport.WEBSOCKET_XHR)
 @CssImport(value = "./styles/view-styles.css", id = "view-styles")
 @CssImport(value = "./styles/shared-styles.css", include = "view-styles")
 @Viewport("width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes")
