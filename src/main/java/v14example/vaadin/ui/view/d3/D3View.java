@@ -26,7 +26,7 @@ import java.util.List;
 // The tree.js example is from: http://bl.ocks.org/d3noob/8375092
 // A more extensive example to integrate could be: http://bl.ocks.org/robschmuecker/7880033
 
-@Route(value = "", layout = MainLayout.class)
+@Route(value = "d3", layout = MainLayout.class)
 @PageTitle("D3 View")
 public class D3View extends VerticalLayout
 {
