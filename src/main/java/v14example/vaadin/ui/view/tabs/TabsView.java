@@ -9,6 +9,7 @@ import com.vaadin.flow.component.tabs.Tabs;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import v14example.vaadin.ui.MainLayout;
+import v14example.vaadin.ui.MyAppLayoutRouterLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @PageTitle("Tabs View")
-@Route(value = "tabsview", layout = MainLayout.class)
+@Route(value = "tabsview", layout = MyAppLayoutRouterLayout.class)
 public class TabsView extends VerticalLayout
 {
     // from: https://vaadin.com/components/vaadin-tabs/java-examples
@@ -49,6 +50,7 @@ public class TabsView extends VerticalLayout
         tabsToPages.put(tab1, page1);
         tabsToPages.put(tab2, page2);
         tabsToPages.put(tab3, page3);
+
         Tabs tabs = new Tabs(tab1, tab2, tab3);
         tabs.setFlexGrowForEnclosedTabs(1); // full width
 

@@ -19,6 +19,7 @@ import v14example.vaadin.ui.MainLayout;
 import elemental.json.JsonValue;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import v14example.vaadin.ui.MyAppLayoutRouterLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +27,7 @@ import java.util.List;
 // The tree.js example is from: http://bl.ocks.org/d3noob/8375092
 // A more extensive example to integrate could be: http://bl.ocks.org/robschmuecker/7880033
 
-@Route(value = "d3", layout = MainLayout.class)
+@Route(value = "d3view", layout = MyAppLayoutRouterLayout.class)
 @PageTitle("D3 View")
 public class D3View extends VerticalLayout
 {

@@ -64,23 +64,4 @@ public class Util
         }
     }
 
-    public static void printCookies()
-    {
-        log.info("************ Printing all cookies ************");
-
-        // Fetch all cookies
-        Cookie[] cookies = VaadinService.getCurrentRequest().getCookies();
-
-        int counter = 0;
-        for (Cookie cookie: cookies)
-        {
-            counter++;
-            log.info(counter + " - Name: "+cookie.getName());
-            log.info(counter + " - Value: "+cookie.getValue());
-            log.info(counter + " - Path: "+cookie.getPath());
-            log.info(counter + " - Domain: "+cookie.getDomain());
-            log.info(counter + " - Comment: "+cookie.getComment());
-            log.info("");
-        }
-    }
 }

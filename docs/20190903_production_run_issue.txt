@@ -1,0 +1,25 @@
+My Simple v14-based application does not show/load the static content when I run as JAR in production mode and I fail to see where things go wrong. Although I've experienced some instability, in development mode, the frontend seems to work as it should.
+
+I've reproduced this issue in my general purpose Vaadin example repo, see: https://github.com/markhm/vaadin_examples
+
+It contains some examples for including D3js in Vaadin and has an Image logo and localization Images, which are sometimes shown and sometimes not. (The D3js content is also not loaded correctly at the moment, but that is probably related.)
+
+To reproduce the problem, build using mvn -Pprod clean package.
+
+Then, observe that running an unpacked version of the application shows the static content without a problem. From the project root, run ant runUnpacked.
+
+However, when the application is started as jar only, the static content is not shown. This is done via ant runAsJar (if needed rerun 'mvn -Pprod clean package' before).
+
+The url for both examples is: http://localhost:81/app.
+
+I would like to run the application as JAR, so I can use the Windows service wrapper and install it as a service.
+
+I am using:
+- OpenJDK "12" 2019-03-19 on MacOS
+- Vaadin 14.0.3 (latest)
+- macOS 10.14.6 (latest)
+- Chrome Version 76.0.3809.132 (Official Build) (64-bit)
+
+I did take note of [this issue](https://github.com/vaadin/flow/issues/5416), but this only seems to solve the problem for one of my projects and the response seems somewhat unsatisfactory.
+
+Thank you very much for your help.

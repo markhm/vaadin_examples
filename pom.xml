@@ -27,8 +27,11 @@
         <drivers.downloader.phase>pre-integration-test</drivers.downloader.phase>
 
         <!-- Component versions -->
-        <vaadin.version>14.0.7</vaadin.version>
+        <vaadin.version>14.0.15</vaadin.version>
         <spring-version>5.2.0.RELEASE</spring-version>
+
+        <app-layout-addon.version>4.0.0.rc4</app-layout-addon.version>
+        <mapbox-flow.version>0.0.2-SNAPSHOT</mapbox-flow.version>
     </properties>
 
     <dependencyManagement>
@@ -68,9 +71,15 @@
         </dependency>
 
         <dependency>
-            <groupId>com.vaadin</groupId>
-            <artifactId>vaadin-testbench</artifactId>
-            <scope>test</scope>
+            <groupId>com.github.appreciated</groupId>
+            <artifactId>app-layout-addon</artifactId>
+            <version>${app-layout-addon.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.markhm</groupId>
+            <artifactId>mapbox-flow</artifactId>
+            <version>${mapbox-flow.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
@@ -108,7 +117,7 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>dev</id> <!-- Spring Boot JAR -->
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
@@ -117,7 +126,38 @@
                 <env>dev</env>
             </properties>
             <build>
-
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-resources</id>
+                                <!-- here the phase you need -->
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${basedir}/target/classes/META-INF/resources/</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>src/main/webapp</directory>
+                                            <filtering>false</filtering>
+                                        </resource>
+                                        <resource>
+                                            <directory>./</directory>
+                                            <includes>
+                                                <include>frontend/**/**</include>
+                                            </includes>
+                                            <filtering>false</filtering>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
             </build>
         </profile>
 
