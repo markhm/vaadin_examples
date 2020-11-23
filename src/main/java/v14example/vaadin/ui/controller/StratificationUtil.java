@@ -1,5 +1,7 @@
 package v14example.vaadin.ui.controller;
 
+import elemental.json.Json;
+import elemental.json.JsonException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
@@ -34,7 +36,7 @@ public class StratificationUtil
             parseLine(PermanentLinkExtractor.parseSimple(string));
         }
     }
-    public JSONObject stratify(List<String> permalinks)
+    public JSONObject stratify(List<String> permalinks) throws JSONException
     {
         result.put("name", "root");
 
@@ -73,15 +75,23 @@ public class StratificationUtil
 
     protected void buildTree()
     {
-        Iterator<String> setIterator = treeNodePropertyHolder.positionSet().iterator();
-        while (setIterator.hasNext())
+        try
         {
-            String pakcage = (String) setIterator.next();
-            processTokenSet(result, pakcage, "/");
+            Iterator<String> setIterator = treeNodePropertyHolder.positionSet().iterator();
+            while (setIterator.hasNext())
+            {
+                String pakcage = (String) setIterator.next();
+                processTokenSet(result, pakcage, "/");
+            }
         }
+        catch (JSONException exception)
+        {
+            log.error(exception);
+        }
+
     }
 
-    public void processTokenSet(JSONObject parentObject, String pakcage, String separator)
+    public void processTokenSet(JSONObject parentObject, String pakcage, String separator) throws JSONException
     {
         // if (log.isInfoEnabled()) log.info("Processing line item '" + pakcage + "'");
 
@@ -96,7 +106,7 @@ public class StratificationUtil
         processTokenList(parentObject, tokens);
     }
 
-    private JSONArray getChildren(final JSONObject parentNode)
+    private JSONArray getChildren(final JSONObject parentNode) throws JSONException
     {
         JSONArray children = null;
         try
@@ -112,7 +122,7 @@ public class StratificationUtil
         return children;
     }
 
-    protected void processTokenList(final JSONObject parentNode, final List<String> tokenList)
+    protected void processTokenList(final JSONObject parentNode, final List<String> tokenList) throws JSONException
     {
         Set<String> tokens = treeNodePropertyHolder.positionSet();
         // log.info("Processing tokens"+"("+tokenList.size()+") with first token: "+tokenList.get(0));
@@ -123,10 +133,9 @@ public class StratificationUtil
         {
             JSONArray children = getChildren(parentNode);
 
-            Iterator childIterator = children.iterator();
-            while (childIterator.hasNext())
+            for (int i = 0; i < children.length(); i++)
             {
-                JSONObject potentialNode = (JSONObject) childIterator.next();
+                JSONObject potentialNode = (JSONObject) children.get(i);
                 String nodeName = (String) potentialNode.get("name");
                 if (nodeName.startsWith(currentToken))
                 {

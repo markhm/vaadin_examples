@@ -14,7 +14,7 @@ import com.vaadin.flow.router.Route;
 import v14example.vaadin.ui.MyAppLayoutRouterLayout;
 
 
-@Route(value = "", layout = MyAppLayoutRouterLayout.class)
+@Route(value = "/", layout = MyAppLayoutRouterLayout.class)
 @PageTitle("Example application")
 public class HomepageView extends VerticalLayout
 {

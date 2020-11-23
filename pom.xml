@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.0.RELEASE</version>
+        <version>2.4.0</version>
     </parent>
 
     <groupId>dk.mhm</groupId>
@@ -16,8 +16,7 @@
 	<description>Vaadin examples project, among other for integrating ApexCharts and D3</description>
 
     <properties>
-        <maven.compiler.source>13</maven.compiler.source>
-        <maven.compiler.target>13</maven.compiler.target>
+        <maven.compiler.release>15</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -27,7 +26,7 @@
         <drivers.downloader.phase>pre-integration-test</drivers.downloader.phase>
 
         <!-- Component versions -->
-        <vaadin.version>14.0.15</vaadin.version>
+        <vaadin.version>14.4.2</vaadin.version>
         <spring-version>5.2.0.RELEASE</spring-version>
 
         <app-layout-addon.version>4.0.0.rc4</app-layout-addon.version>
@@ -59,16 +58,24 @@
             <artifactId>vaadin-spring-boot-starter</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--        </dependency>-->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-<!--            <optional>true</optional>-->
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.metrics/spring-metrics &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.metrics</groupId>-->
+<!--            <artifactId>spring-metrics</artifactId>-->
+<!--            <version>0.5.1.RELEASE</version>-->
+<!--        </dependency>-->
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-devtools</artifactId>-->
+<!--&lt;!&ndash;            <optional>true</optional>&ndash;&gt;-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.github.appreciated</groupId>
@@ -82,12 +89,12 @@
             <version>${mapbox-flow.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring-version}</version>
-        </dependency>
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework/spring-core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework</groupId>-->
+<!--            <artifactId>spring-core</artifactId>-->
+<!--            <version>${spring-version}</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>

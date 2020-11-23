@@ -93,7 +93,7 @@ public class MapboxView extends VerticalLayout
     public static Layer getExampleLayer()
     {
         // getLayer().toString() or getLayer().toString().replace("\"", "\'") is not needed
-        Layer layer = new Layer("points", "symbol");
+        Layer layer = new Layer("points", Layer.Type.symbol);
 
         Layer.Properties mapboxDCProperties = new Layer.Properties("National Bank", Sprite.Bank.toString());
         GeoLocation mapboxDCLocation = new GeoLocation(-77.03238901390978, 38.913188059745586);
